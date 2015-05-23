@@ -4,4 +4,6 @@ SELECT
 FROM
 	Session
 WHERE
-	cookie = @session;
+	cookie = @session AND
+	Session.begin <= NOW() AND
+	NOW() < Session.end;
