@@ -7,4 +7,5 @@ FROM
 WHERE
 	Session.id = @session AND
 	Session.begin <= NOW() AND
-	NOW() < Session.end;
+	(Session.end IS NULL OR NOW() < Session.end)
+LIMIT 1;
