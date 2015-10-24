@@ -1,0 +1,27 @@
+<form method="post">
+	<label for="username">
+		Username:
+	</label>
+	{% username_failure %}
+	<input value="{% username %}" type="text" name="username">
+
+	<label for="password">
+		Password:
+	</label>
+	{% password_failure %}
+	<input value="{% password %}" type="password" name="password">
+
+	<label for="repeatpassword">
+		Repeat password:
+	</label>
+	<input value="{% repeatpassword %}" type="password" name="repeatpassword">
+
+	<label for="check">
+		Colour of grass
+	</label>
+	{% check_failure %}
+	<input value="{% check %}" type="text" name="check">
+
+
+	<input type="submit" value="Register">
+</form>
