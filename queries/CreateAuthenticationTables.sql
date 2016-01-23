@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS `Login`;
+
 CREATE TABLE `Login` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
@@ -5,6 +7,8 @@ CREATE TABLE `Login` (
   `salt` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+
+DROP TABLE IF EXISTS `Session`;
 
 CREATE TABLE `Session` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
