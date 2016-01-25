@@ -1,8 +1,6 @@
-INSERT INTO Login(username, password, salt)
+INSERT INTO Login(username, passwordhash)
 VALUES (
-	@username, 
-	SHA2(CONCAT(@password, LEFT(@sessioncookie, 20)), 512), 
-	LEFT(@sessioncookie, 20)
+	@username, @passwordhash
 );
 
 SELECT LAST_INSERT_ID() login;
