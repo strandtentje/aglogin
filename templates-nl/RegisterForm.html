@@ -1,5 +1,6 @@
 {% header %}
-<form method="post">
+<form method="post" action="{% actionurl %}" id="registerform">
+	<span class="title">Registreren</span>
 	<div class="field">
 		<label for="username">
 			Gebruikersnaam:
@@ -31,5 +32,5 @@
 		<input value="{% check %}" type="text" name="check">
 	</div>
 
-	<input type="submit" value="Register">
+	<input class="submitbutton" type="submit" value="Registreren">
 </form>

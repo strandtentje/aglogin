@@ -1,4 +1,5 @@
-<form method="post">
+<form method="post" action="{% actionurl %}" id="loginform">
+	<span class="title">Inloggen</span>
 	<div class="field" id="username_entry">
 		<label for="username">
 			Gebruikersnaam:
@@ -13,5 +14,5 @@
 		<input type="password" name="password">
 	</div>
 
-	<input type="submit" value="Log in">
+	<input class="submitbutton" type="submit" value="Inloggen">
 </form>
