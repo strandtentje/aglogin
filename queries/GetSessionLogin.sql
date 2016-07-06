@@ -1,6 +1,6 @@
 SELECT 
 	Login.id login,
-	Login.username username
+	Login.username loggedinusername
 FROM 
 	Session JOIN Login ON
 		Session.login = Login.id

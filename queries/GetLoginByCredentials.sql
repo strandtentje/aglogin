@@ -1,5 +1,7 @@
 SELECT
-    Login.id login
+    Login.id login,
+    "" AS username,
+    username AS loggedinusername
 FROM 
 	Login
 WHERE
