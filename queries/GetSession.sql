@@ -4,7 +4,5 @@ SELECT
 FROM
 	Session
 WHERE
-	cookie = @sessioncookie AND
-	Session.begin <= NOW() AND
-	(Session.end IS NULL OR NOW() < Session.end)
+	cookie = @sessioncookie AND NOW() BETWEEN Session.begin AND IFNULL(Session.end, '9999-12-31')
 LIMIT 1;
