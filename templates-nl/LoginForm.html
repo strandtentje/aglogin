@@ -4,15 +4,35 @@
 		<label for="username">
 			Gebruikersnaam:
 		</label>
-		<input type="text" name="username">
+		<input type="text" name="username" id="loginusernameinput" pattern="[\w|0-9|-|_]{2,60}">
 	</div>
 
 	<div class="field" id="password_entry">
 		<label for="password">
 			Wachtwoord:
 		</label>
-		<input type="password" name="password">
+		<input type="password" name="password" id="loginpasswordinput" pattern=".{8,}">
 	</div>
 
 	<input class="submitbutton" type="submit" value="Inloggen">
 </form>
+<script type="text/javascript">
+var loginusernameInput = document.getElementById("loginusernameinput");
+var loginpasswordInput = document.getElementById("loginpasswordinput");
+
+loginusernameInput.oninput = function() {
+	if (usernameInput.validity.patternMismatch) {
+		this.setCustomValidity('Een gebruikersnaam is meer dan drie tekens lang en bevat alleen letters en cijfers');
+	} else {
+		this.setCustomValidity('');
+	}
+};
+
+loginpasswordInput.oninput = function() {
+	if (passwordInput.validity.patternMismatch) {
+		this.setCustomValidity('Een wachtwoord bevat ten minste 8 tekens');
+	} else {
+		this.setCustomValidity('');
+	}
+};
+</script>

@@ -6,7 +6,7 @@
 			Gebruikersnaam:
 		</label>
 		{% username_failure %}
-		<input value="{% username %}" type="text" name="username">
+		<input value="{% username %}" type="text" name="username" id="registerusernameinput" pattern="[\w|0-9|-|_]{2,60}">
 	</div>
 
 	<div class="field">
@@ -14,14 +14,14 @@
 			Wachtwoord:
 		</label>
 		{% password_failure %}
-		<input value="" type="password" name="password">
+		<input value="" type="password" name="password" id="registerpasswordinput" pattern=".{8,}">
 	</div>
 
 	<div class="field">
-		<label for="repeatpassword">
+		<label for="registerrepeatpassword">
 			Herhaal wachtwoord:
 		</label>
-		<input value="" type="password" name="repeatpassword">
+		<input value="" type="password" name="registerrepeatpassword" id="registerrepeatpassword" pattern=".{8,}">
 	</div>
 
 	<div class="field">
@@ -29,8 +29,37 @@
 			Kleur van gras
 		</label>
 		{% check_failure %}
-		<input value="{% check %}" type="text" name="check">
+		<input value="{% check %}" type="text" name="check" id="testinput">
 	</div>
 
 	<input class="submitbutton" type="submit" value="Registreren">
 </form>
+<script type="text/javascript">
+var registerusernameInput = document.getElementById("registerusernameinput");
+var registerpasswordInput = document.getElementById("registerpasswordinput");
+var registerrepeatPassword = document.getElementById("registerrepeatpassword");
+
+registerusernameInput.oninput = function() {
+	if (registerusernameInput.validity.patternMismatch) {
+		this.setCustomValidity('Een gebruikersnaam is meer dan drie tekens lang en bevat alleen letters en cijfers');
+	} else {
+		this.setCustomValidity('');
+	}
+};
+
+registerpasswordInput.oninput = function() {
+	if (registerpasswordInput.validity.patternMismatch) {
+		this.setCustomValidity('Een wachtwoord bevat ten minste 8 tekens');
+	} else {
+		this.setCustomValidity('');
+	}
+};
+
+registerrepeatPassword.oninput = function() {
+	if (registerpasswordInput.value == registerrepeatPassword.value) {
+		this.setCustomValidity('');
+	} else {
+		this.setCustomValidity('Wachtwoorden komen niet overeen');
+	}
+};
+</script>
